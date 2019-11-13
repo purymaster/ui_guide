@@ -1,0 +1,18 @@
+@@include('header.html')
+<button onclick="show_loading();">로딩띄우기</button>
+<script>
+	$(function () {
+		$('[data-loading]').on('click', function () {
+			$(this).hide();
+		});
+	});
+</script>
+@@include('loading.html')
+<pre><code class="language-markup">&lt;div&nbsp;data-loading&nbsp;style=&quot;display:none;&quot;&gt;
+	&lt;div&nbsp;class=&quot;txt_wrap&quot;&gt;
+		&lt;img&nbsp;src=&quot;../img/img/img_logo_header.png&quot;&nbsp;alt=&quot;&quot;&gt;
+		&lt;p&gt;로딩중입니다.&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+@@include('footer.html')

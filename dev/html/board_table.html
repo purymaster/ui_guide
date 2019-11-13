@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>UI 퍼블리싱 가이드</title>
+	<link rel="stylesheet" href="../css/ui.css">
+	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/prism-1.17.1.min.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="container">
+			<div data-board-table>
+				<table>
+					<colgroup>
+						<col style="width:8%;">
+						<col>
+						<col style="width:12%;">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">번호</th>
+							<th scope="col">제목</th>
+							<th scope="col">상태</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-type="num">99999</td>
+							<td data-type="title">
+								<a href="#">
+									<span class="cate">[정시]</span>
+									<p class="tit">
+										군사법원의 조직·권한 및 재판관의 자격은 법률로 정한다. 대법원장의 임기는 6년으로 하며, 중임할 수 없다. 모든 국민은 근로의 권리를
+										가진다. 국가는 사회적·경제적 방법으로 근로자의 고용의 증진과 적정임금의 보장에 노력하여야 하며, 법률이 정하는 바에 의하여 최저임금제를
+										시행하여야 한다.
+									</p>
+									<span class="secret">비밀글</span>
+								</a>
+							</td>
+							<td data-type="status">
+								<span>답변대기</span>
+							</td>
+						</tr>
+						<tr>
+							<td data-type="num">99999</td>
+							<td data-type="title">
+								<a href="#">
+									<span class="cate">[편입학]</span>
+									<p class="tit">
+										국민경제의 발전을 위한 중요정책의 수립에 관하여 대통령의 자문에 응하기 위하여 국민경제자문회의를 둘 수 있다.
+									</p>
+								</a>
+							</td>
+							<td data-type="status">
+								<span class="on">답변완료</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<pre><code class="language-markup">&lt;div&nbsp;data-board-table&gt;
+	&lt;table&gt;
+		&lt;colgroup&gt;
+			&lt;col&nbsp;style=&quot;width:8%;&quot;&gt;
+			&lt;col&gt;
+			&lt;col&nbsp;style=&quot;width:12%;&quot;&gt;
+		&lt;/colgroup&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th&nbsp;scope=&quot;col&quot;&gt;번호&lt;/th&gt;
+				&lt;th&nbsp;scope=&quot;col&quot;&gt;제목&lt;/th&gt;
+				&lt;th&nbsp;scope=&quot;col&quot;&gt;상태&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td&nbsp;data-type=&quot;num&quot;&gt;99999&lt;/td&gt;
+				&lt;td&nbsp;data-type=&quot;title&quot;&gt;
+					&lt;a&nbsp;href=&quot;#&quot;&gt;
+						&lt;span&nbsp;class=&quot;cate&quot;&gt;[정시]&lt;/span&gt;
+						&lt;p&nbsp;class=&quot;tit&quot;&gt;
+							군사법원의&nbsp;조직&middot;권한&nbsp;및&nbsp;재판관의&nbsp;자격은&nbsp;법률로&nbsp;정한다.&nbsp;대법원장의&nbsp;임기는&nbsp;6년으로&nbsp;하며,&nbsp;중임할&nbsp;수&nbsp;없다.&nbsp;모든&nbsp;국민은&nbsp;근로의&nbsp;권리를
+							가진다.&nbsp;국가는&nbsp;사회적&middot;경제적&nbsp;방법으로&nbsp;근로자의&nbsp;고용의&nbsp;증진과&nbsp;적정임금의&nbsp;보장에&nbsp;노력하여야&nbsp;하며,&nbsp;법률이&nbsp;정하는&nbsp;바에&nbsp;의하여&nbsp;최저임금제를
+							시행하여야&nbsp;한다.
+						&lt;/p&gt;
+						&lt;span&nbsp;class=&quot;secret&quot;&gt;비밀글&lt;/span&gt;
+					&lt;/a&gt;
+				&lt;/td&gt;
+				&lt;td&nbsp;data-type=&quot;status&quot;&gt;
+					&lt;span&gt;답변대기&lt;/span&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&nbsp;data-type=&quot;num&quot;&gt;99999&lt;/td&gt;
+				&lt;td&nbsp;data-type=&quot;title&quot;&gt;
+					&lt;a&nbsp;href=&quot;#&quot;&gt;
+						&lt;span&nbsp;class=&quot;cate&quot;&gt;[편입학]&lt;/span&gt;
+						&lt;p&nbsp;class=&quot;tit&quot;&gt;
+							국민경제의&nbsp;발전을&nbsp;위한&nbsp;중요정책의&nbsp;수립에&nbsp;관하여&nbsp;대통령의&nbsp;자문에&nbsp;응하기&nbsp;위하여&nbsp;국민경제자문회의를&nbsp;둘&nbsp;수&nbsp;있다.
+						&lt;/p&gt;
+					&lt;/a&gt;
+				&lt;/td&gt;
+				&lt;td&nbsp;data-type=&quot;status&quot;&gt;
+					&lt;span&nbsp;class=&quot;on&quot;&gt;답변완료&lt;/span&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+		</div>
+	</div>
+	<div class="move_top">
+		<button type="button">페이지 최상단으로 이동</button>
+	</div>
+</body>
+</html>

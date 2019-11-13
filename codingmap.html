@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<title>UI 퍼블리싱 가이드</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width">
+	<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+	<style>
+		a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-spacing:0;border-collapse:collapse}button{outline:0;cursor:pointer}*{box-sizing:border-box;max-height:1000000px;font-family:"Noto Sans",AppleSDGothicNeo,DroidSansFallback,arial,sans-serif;color:#333;letter-spacing:-.025em}body,html{height:100%}.map_wrap{padding:10px}.map_wrap .tit{font-size:16px;font-weight:700;line-height:1.5}.map_wrap .info{overflow:hidden;margin:10px 0 5px 0;font-size:12px}.map_wrap .info .process{overflow:hidden;float:left;line-height:20px}.map_wrap .info .process dd,.map_wrap .info .process dt{float:left;margin-right:5px}.map_wrap .info .process dd{color:red}.map_wrap .info .status{overflow:hidden;float:right}.map_wrap .info .status li{float:left;margin-left:3px}.map_wrap .info .status li em{margin-right:3px}.table_wrap{margin-top:10px}table.list{width:100%;border-top:1px solid #999;border-bottom:1px solid #999;font-size:0;word-break:break-all;table-layout:fixed}table.list td,table.list th{overflow:hidden;padding:5px;border-top:1px solid #eee;border-left:1px solid #ccc;font-size:12px;line-height:20px;text-overflow:ellipsis;white-space:nowrap}table.list th{border-top:1px solid #999;border-left:1px solid #999}table.list td a{color:#666;text-decoration:none}table.list tr.hover td{background:#999;color:#fff}table.list tr.part td{border-top:1px solid #ccc}table.list tr td:first-child,table.list tr th:first-child{border-left:0}table.list tr:first-child td{border-top:1px solid #999}table.list th{background:#ccc;font-weight:700}table.list th.num{width:40px}table.list th.id{width:150px}table.list th.dev{width:50px}table.list th.date,table.list th.stat{width:50px}table.list th.memo{width:40%}table.list th.link{width:80px}table.list td{color:#666}table.list td.center{text-align:center}em.ico{display:inline-block;width:20px;border-radius:5px;font-size:12px;font-style:normal;line-height:20px;color:#fff;text-align:center;text-transform:uppercase}em.ico.standby{background:#666}em.ico.work{background:#1e90ff}em.ico.end{background:#32cd32}em.ico.modify{background:#ff1493}@media (max-width:1024px){header{text-align:center}header h1{position:static}header{height:auto;padding:10px 0;font-size:0}nav{overflow-x:auto;width:100%}nav ul{position:static;margin-top:10px;white-space:nowrap}nav ul li a{font-size:14px;line-height:19px}section{position:static;padding-top:80px;font-size:0}.guide_wrap>ul>li{padding-left:8px;font-size:12px;text-indent:-8px}.slide_wrap{position:static;height:auto;border:0;background:#fff}.map_wrap .info{padding:5px}.map_wrap .tit{text-align:center}table.list th.date,table.list th.dev,table.list th.id,table.list th.memo,table.list th.num,table.list tr td:nth-child(1),table.list tr td:nth-child(5),table.list tr td:nth-child(6){width:0;padding:0;border:0}table.list th.link{width:40px}table.list td a.mobile{display:none}table.list tbody tr td:nth-child(2),table.list thead tr th:nth-child(2){border-left:0}}@media (max-width:599px){table.list th.stat{width:40px}table.list td,table.list th{font-size:11px}}
+	</style>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function () { var t, i, h, n = $("table.list"); n.each(function () { $(this).find("tr:gt(0)").hover(function () { $(this).addClass("hover") }, function () { $(this).removeClass("hover") }).each(function (t) { $("td:eq(0)", this).text(t + 1), "" != $("td:eq(1)", this).text() && $(this).addClass("part") }).find("td").each(function () { "" == $(this).text() && $(this).addClass("nodata") }), $(this).find("tr").each(function () { i = $(this).find("td:eq(4)").text(), console.log(i); h = "<a href='dev/html/" + i + ".html' target='_blank' title='새창열림'>보기</a>", $(this).find("td:last-child").html(h) }) }) });
+	</script>
+</head>
+
+<body>
+	<div class="wrap">
+
+		<!-- UI 퍼블리싱 가이드 -->
+		<div class="map_wrap">
+			<p class="tit">UI 퍼블리싱 가이드</p>
+			<div class="table_wrap">
+				<table class="list d3">
+					<caption>코딩 리스트</caption>
+					<thead>
+						<tr>
+							<th class="num">No</th>
+							<th class="depth">1depth</th>
+							<th class="depth">2depth</th>
+							<th class="depth">3depth</th>
+							<th class="id">ID</th>
+							<th class="memo">Memo</th>
+							<th class="link">Link</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="center"></td>
+							<td>header</td>
+							<td>nav</td>
+							<td>mega_menu</td>
+							<td class="center">nav_mega</td>
+							<td>2depth가 메가메뉴 형태인 내비게이션</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td></td>
+							<td>seperate_menu</td>
+							<td class="center">nav_seperate</td>
+							<td>2depth가 1depth 메뉴의 개별 항목으로 출력되는 형태의 내비게이션</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td></td>
+							<td>inline_menu</td>
+							<td class="center">nav_inline</td>
+							<td>2depth가 가로로 출력되는 내비게이션</td>
+							<td class="center"></td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td class="center"></td>
+							<td>content</td>
+							<td>tab</td>
+							<td></td>
+							<td class="center">tab_menu</td>
+							<td>탭메뉴</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td>text_list</td>
+							<td></td>
+							<td class="center">text_list</td>
+							<td>각종 타입의 목차 리스트</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td>table</td>
+							<td>data_table</td>
+							<td class="center">data_table</td>
+							<td>data 조회가 목적인 테이블</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td>board</td>
+							<td>list(table)</td>
+							<td class="center">board_table</td>
+							<td>table 태그로 이루어진 게시판 리스트</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td></td>
+							<td>list(thumbnail)</td>
+							<td class="center">board_list</td>
+							<td>ul 태그로 이루어진 게시판 리스트(썸네일 포함)</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td></td>
+							<td>list(gallery)</td>
+							<td class="center">board_gallery</td>
+							<td>갤러리 형태의 게시판 리스트</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td></td>
+							<td>view</td>
+							<td class="center">board_view</td>
+							<td>게시물 상세 페이지</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td>paging</td>
+							<td></td>
+							<td class="center">paging</td>
+							<td>게시판 페이징</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td>info_graphic</td>
+							<td></td>
+							<td class="center">info_graphic</td>
+							<td>인포그래픽(일명 통이미지)</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td>btn_wrap</td>
+							<td></td>
+							<td class="center">btn_wrap</td>
+							<td>페이지 하단의 '확인', '취소' 등에 사용되는 버튼</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td>misc</td>
+							<td>checkbox</td>
+							<td class="center">checkbox</td>
+							<td>체크박스</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td></td>
+							<td>radio</td>
+							<td class="center">radio</td>
+							<td>라디오버튼</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td></td>
+							<td>select_box</td>
+							<td class="center">select_box</td>
+							<td>셀렉트박스</td>
+							<td class="center"></td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td class="center"></td>
+							<td>popup</td>
+							<td>modal_popup</td>
+							<td></td>
+							<td class="center">modal</td>
+							<td>모달 레이어 팝업</td>
+							<td class="center"></td>
+						</tr>
+						<tr>
+							<td class="center"></td>
+							<td></td>
+							<td>loading</td>
+							<td></td>
+							<td class="center">loading</td>
+							<td>로딩</td>
+							<td class="center"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- //UI 퍼블리싱 가이드 -->
+
+	</div>
+</body>
+
+</html>
