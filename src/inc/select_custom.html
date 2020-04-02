@@ -1,0 +1,13 @@
+<div data-select-box class="custom">
+	<input type="hidden">
+	@@if(context.use) {
+		@@for(var i = 0; i < 1; i++) {
+			<button type="button" id="@@context.id"><span>`+context.value[0]+`</span></button>
+		}
+		<ul role="listbox" aria-labelledby="@@context.id">
+			@@for(var i = 0; i < context.value.length; i++) {
+				<li role="option">`+context.value[i]+`</li>
+			}
+		</ul>
+	}
+</div>

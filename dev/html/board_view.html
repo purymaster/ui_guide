@@ -1,139 +1,1 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>UI 퍼블리싱 가이드</title>
-	<link rel="stylesheet" href="../css/ui.css">
-	<script src="../js/jquery-1.12.4.min.js"></script>
-	<script src="../js/common.js"></script>
-	<script src="../js/prism-1.17.1.min.js"></script>
-</head>
-<body>
-	<div class="wrap">
-		<div class="container">
-			<div data-board-view>
-				<div class="view_header">
-					<h3 class="tit">[창립기념] 2019년 ㈜아리시스 체육대회 FUN!FUN!FUN!</h3>
-					<ul class="info">
-						<li class="date">
-							<span>9999.99.99</span>
-						</li>
-						<li class="view">
-							<span>999,999</span>
-						</li>
-					</ul>
-				</div>
-				<div class="view_content" data-editor>
-					<!-- [D] 에디터 삽입 영역 -->
-					이 날은 창립 14주년을 기념함과 동시에 아리인이 모두 모여 체육행사를 즐기기로 약속된 날이었습니다.<br>
-					<br>
-					H&K컨설팅 관계자분들의 진행으로 오전에는 팀빌딩 게임, 오후에는 명랑 운동회가 진행되었는데요.<br>
-					<br>
-					오전 팀빌딩 게임에서는 4가지 게임 결과로 모은 자음/모음으로 상대팀원의 이름을 완성하여 탈락시키기 위한 치열한 눈치게임이 흥미로웠습니다.<br>
-					<br>
-					오후 명랑운동회에서는 비록 날씨는 명랑하지 못 하였지만, 열띤 응원과 함께 더욱 뜨거운 날씨를 만끽하였지요.<br>
-					<br>
-					무더운 날씨 속에서도 모두들 불타오르는 승부욕으로 최선을 다해 땀 흘려 주시는 모습에 깊이 감동받았습니다. ^^<br>
-					<br>
-					<img src="https://picsum.photos/1200/600" alt="">
-					<!-- [D] //에디터 삽입 영역 -->
-				</div>
-				<div class="single_paging">
-					<ul>
-						<li class="prev">
-							<a href="javascript:return false;">
-								<span>이전글</span>
-								<p class="txt">글이 없습니다.</p>
-							</a>
-						</li>
-						<li class="next">
-							<a href="#">
-								<span>다음글</span>
-								<p class="txt">
-									긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용
-									긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용
-									긴내용 긴내용 긴내용
-								</p>
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="list_btn">
-					<a href="#">
-						<div>
-							목록보기
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</a>
-				</div>
-			</div>
-			<pre><code class="language-markup">&lt;div&nbsp;data-board-view&gt;
-	&lt;div&nbsp;class=&quot;view_header&quot;&gt;
-		&lt;h3&nbsp;class=&quot;tit&quot;&gt;[창립기념]&nbsp;2019년&nbsp;㈜아리시스&nbsp;체육대회&nbsp;FUN!FUN!FUN!&lt;/h3&gt;
-		&lt;ul&nbsp;class=&quot;info&quot;&gt;
-			&lt;li&nbsp;class=&quot;date&quot;&gt;
-				&lt;span&gt;9999.99.99&lt;/span&gt;
-			&lt;/li&gt;
-			&lt;li&nbsp;class=&quot;view&quot;&gt;
-				&lt;span&gt;999,999&lt;/span&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-	&lt;div&nbsp;class=&quot;view_content&quot;&nbsp;data-editor&gt;
-		&lt;!--&nbsp;[D]&nbsp;에디터&nbsp;삽입&nbsp;영역&nbsp;--&gt;
-		이&nbsp;날은&nbsp;창립&nbsp;14주년을&nbsp;기념함과&nbsp;동시에&nbsp;아리인이&nbsp;모두&nbsp;모여&nbsp;체육행사를&nbsp;즐기기로&nbsp;약속된&nbsp;날이었습니다.&lt;br&gt;
-		&lt;br&gt;
-		H&amp;K컨설팅&nbsp;관계자분들의&nbsp;진행으로&nbsp;오전에는&nbsp;팀빌딩&nbsp;게임,&nbsp;오후에는&nbsp;명랑&nbsp;운동회가&nbsp;진행되었는데요.&lt;br&gt;
-		&lt;br&gt;
-		오전&nbsp;팀빌딩&nbsp;게임에서는&nbsp;4가지&nbsp;게임&nbsp;결과로&nbsp;모은&nbsp;자음/모음으로&nbsp;상대팀원의&nbsp;이름을&nbsp;완성하여&nbsp;탈락시키기&nbsp;위한&nbsp;치열한&nbsp;눈치게임이&nbsp;흥미로웠습니다.&lt;br&gt;
-		&lt;br&gt;
-		오후&nbsp;명랑운동회에서는&nbsp;비록&nbsp;날씨는&nbsp;명랑하지&nbsp;못&nbsp;하였지만,&nbsp;열띤&nbsp;응원과&nbsp;함께&nbsp;더욱&nbsp;뜨거운&nbsp;날씨를&nbsp;만끽하였지요.&lt;br&gt;
-		&lt;br&gt;
-		무더운&nbsp;날씨&nbsp;속에서도&nbsp;모두들&nbsp;불타오르는&nbsp;승부욕으로&nbsp;최선을&nbsp;다해&nbsp;땀&nbsp;흘려&nbsp;주시는&nbsp;모습에&nbsp;깊이&nbsp;감동받았습니다.&nbsp;^^&lt;br&gt;
-		&lt;br&gt;
-		&lt;img&nbsp;src=&quot;https://picsum.photos/1200/600&quot;&nbsp;alt=&quot;&quot;&gt;
-		&lt;!--&nbsp;[D]&nbsp;//에디터&nbsp;삽입&nbsp;영역&nbsp;--&gt;
-	&lt;/div&gt;
-	&lt;div&nbsp;class=&quot;single_paging&quot;&gt;
-		&lt;ul&gt;
-			&lt;li&nbsp;class=&quot;prev&quot;&gt;
-				&lt;a&nbsp;href=&quot;javascript:return&nbsp;false;&quot;&gt;
-					&lt;span&gt;이전글&lt;/span&gt;
-					&lt;p&nbsp;class=&quot;txt&quot;&gt;글이&nbsp;없습니다.&lt;/p&gt;
-				&lt;/a&gt;
-			&lt;/li&gt;
-			&lt;li&nbsp;class=&quot;next&quot;&gt;
-				&lt;a&nbsp;href=&quot;#&quot;&gt;
-					&lt;span&gt;다음글&lt;/span&gt;
-					&lt;p&nbsp;class=&quot;txt&quot;&gt;
-						긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용
-						긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용
-						긴내용&nbsp;긴내용&nbsp;긴내용
-					&lt;/p&gt;
-				&lt;/a&gt;
-			&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-	&lt;div&nbsp;class=&quot;list_btn&quot;&gt;
-		&lt;a&nbsp;href=&quot;#&quot;&gt;
-			&lt;div&gt;
-				목록보기
-				&lt;span&gt;&lt;/span&gt;
-				&lt;span&gt;&lt;/span&gt;
-				&lt;span&gt;&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/a&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-		</div>
-	</div>
-	<div class="move_top">
-		<button type="button">페이지 최상단으로 이동</button>
-	</div>
-</body>
-</html>
+<!DOCTYPE html><html lang="ko"><head>	<meta charset="UTF-8">	<meta name="viewport" content="width=device-width, initial-scale=1.0">	<meta http-equiv="X-UA-Compatible" content="ie=edge">	<title>UI 퍼블리싱 가이드</title>	<link rel="stylesheet" href="../css/ui.css">	<script src="../js/jquery-1.12.4.min.js"></script>	<script src="../js/common.js"></script>	<script src="../js/prism-1.17.1.min.js"></script></head><body>	<div class="wrap">		<div class="container">			<div data-board-view>				<div class="view_header">					<h3 class="tit">[창립기념] 2019년 ㈜아리시스 체육대회 FUN!FUN!FUN!</h3>					<ul class="info">						<li class="date">							<span>9999.99.99</span>						</li>						<li class="view">							<span>999,999</span>						</li>					</ul>				</div>				<div class="view_content" data-editor>					<!-- [D] 에디터 삽입 영역 -->					이 날은 창립 14주년을 기념함과 동시에 아리인이 모두 모여 체육행사를 즐기기로 약속된 날이었습니다.<br>					<br>					H&K컨설팅 관계자분들의 진행으로 오전에는 팀빌딩 게임, 오후에는 명랑 운동회가 진행되었는데요.<br>					<br>					오전 팀빌딩 게임에서는 4가지 게임 결과로 모은 자음/모음으로 상대팀원의 이름을 완성하여 탈락시키기 위한 치열한 눈치게임이 흥미로웠습니다.<br>					<br>					오후 명랑운동회에서는 비록 날씨는 명랑하지 못 하였지만, 열띤 응원과 함께 더욱 뜨거운 날씨를 만끽하였지요.<br>					<br>					무더운 날씨 속에서도 모두들 불타오르는 승부욕으로 최선을 다해 땀 흘려 주시는 모습에 깊이 감동받았습니다. ^^<br>					<br>					<img src="https://picsum.photos/1200/600" alt="">					<!-- [D] //에디터 삽입 영역 -->				</div>				<div class="single_paging">					<ul>						<li class="prev">							<a href="javascript:return false;">								<span>이전글</span>								<p class="txt">글이 없습니다.</p>							</a>						</li>						<li class="next">							<a href="#">								<span>다음글</span>								<p class="txt">									긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용									긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용 긴내용									긴내용 긴내용 긴내용								</p>							</a>						</li>					</ul>				</div>				<div class="list_btn">					<a href="#">						<div>							목록보기							<span></span>							<span></span>							<span></span>						</div>					</a>				</div>			</div>			<pre><code class="language-markup">&lt;div&nbsp;data-board-view&gt;	&lt;div&nbsp;class=&quot;view_header&quot;&gt;		&lt;h3&nbsp;class=&quot;tit&quot;&gt;[창립기념]&nbsp;2019년&nbsp;㈜아리시스&nbsp;체육대회&nbsp;FUN!FUN!FUN!&lt;/h3&gt;		&lt;ul&nbsp;class=&quot;info&quot;&gt;			&lt;li&nbsp;class=&quot;date&quot;&gt;				&lt;span&gt;9999.99.99&lt;/span&gt;			&lt;/li&gt;			&lt;li&nbsp;class=&quot;view&quot;&gt;				&lt;span&gt;999,999&lt;/span&gt;			&lt;/li&gt;		&lt;/ul&gt;	&lt;/div&gt;	&lt;div&nbsp;class=&quot;view_content&quot;&nbsp;data-editor&gt;		&lt;!--&nbsp;[D]&nbsp;에디터&nbsp;삽입&nbsp;영역&nbsp;--&gt;		이&nbsp;날은&nbsp;창립&nbsp;14주년을&nbsp;기념함과&nbsp;동시에&nbsp;아리인이&nbsp;모두&nbsp;모여&nbsp;체육행사를&nbsp;즐기기로&nbsp;약속된&nbsp;날이었습니다.&lt;br&gt;		&lt;br&gt;		H&amp;K컨설팅&nbsp;관계자분들의&nbsp;진행으로&nbsp;오전에는&nbsp;팀빌딩&nbsp;게임,&nbsp;오후에는&nbsp;명랑&nbsp;운동회가&nbsp;진행되었는데요.&lt;br&gt;		&lt;br&gt;		오전&nbsp;팀빌딩&nbsp;게임에서는&nbsp;4가지&nbsp;게임&nbsp;결과로&nbsp;모은&nbsp;자음/모음으로&nbsp;상대팀원의&nbsp;이름을&nbsp;완성하여&nbsp;탈락시키기&nbsp;위한&nbsp;치열한&nbsp;눈치게임이&nbsp;흥미로웠습니다.&lt;br&gt;		&lt;br&gt;		오후&nbsp;명랑운동회에서는&nbsp;비록&nbsp;날씨는&nbsp;명랑하지&nbsp;못&nbsp;하였지만,&nbsp;열띤&nbsp;응원과&nbsp;함께&nbsp;더욱&nbsp;뜨거운&nbsp;날씨를&nbsp;만끽하였지요.&lt;br&gt;		&lt;br&gt;		무더운&nbsp;날씨&nbsp;속에서도&nbsp;모두들&nbsp;불타오르는&nbsp;승부욕으로&nbsp;최선을&nbsp;다해&nbsp;땀&nbsp;흘려&nbsp;주시는&nbsp;모습에&nbsp;깊이&nbsp;감동받았습니다.&nbsp;^^&lt;br&gt;		&lt;br&gt;		&lt;img&nbsp;src=&quot;https://picsum.photos/1200/600&quot;&nbsp;alt=&quot;&quot;&gt;		&lt;!--&nbsp;[D]&nbsp;//에디터&nbsp;삽입&nbsp;영역&nbsp;--&gt;	&lt;/div&gt;	&lt;div&nbsp;class=&quot;single_paging&quot;&gt;		&lt;ul&gt;			&lt;li&nbsp;class=&quot;prev&quot;&gt;				&lt;a&nbsp;href=&quot;javascript:return&nbsp;false;&quot;&gt;					&lt;span&gt;이전글&lt;/span&gt;					&lt;p&nbsp;class=&quot;txt&quot;&gt;글이&nbsp;없습니다.&lt;/p&gt;				&lt;/a&gt;			&lt;/li&gt;			&lt;li&nbsp;class=&quot;next&quot;&gt;				&lt;a&nbsp;href=&quot;#&quot;&gt;					&lt;span&gt;다음글&lt;/span&gt;					&lt;p&nbsp;class=&quot;txt&quot;&gt;						긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용						긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용&nbsp;긴내용						긴내용&nbsp;긴내용&nbsp;긴내용					&lt;/p&gt;				&lt;/a&gt;			&lt;/li&gt;		&lt;/ul&gt;	&lt;/div&gt;	&lt;div&nbsp;class=&quot;list_btn&quot;&gt;		&lt;a&nbsp;href=&quot;#&quot;&gt;			&lt;div&gt;				목록보기				&lt;span&gt;&lt;/span&gt;				&lt;span&gt;&lt;/span&gt;				&lt;span&gt;&lt;/span&gt;			&lt;/div&gt;		&lt;/a&gt;	&lt;/div&gt;&lt;/div&gt;</code></pre>		</div>	</div>	<div class="move_top">		<button type="button">페이지 최상단으로 이동</button>	</div></body></html>

@@ -7,11 +7,28 @@
 })
 <pre><code class="language-markup">&lt;div&nbsp;data-select-box&gt;
 	&lt;input&nbsp;type=&quot;hidden&quot;&gt;
-	&lt;button&nbsp;type=&quot;button&quot;&gt;&lt;span&gt;전체&lt;/span&gt;&lt;/button&gt;
-	&lt;ul&gt;
-		&lt;li&gt;&lt;a&nbsp;href=&quot;#none&quot;&gt;전체&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a&nbsp;href=&quot;#none&quot;&gt;제목&lt;/a&gt;&lt;/li&gt;
-		&lt;li&gt;&lt;a&nbsp;href=&quot;#none&quot;&gt;작성자&lt;/a&gt;&lt;/li&gt;
+	&lt;label&gt;&lt;/label&gt;
+	&lt;select&gt;
+		&lt;option&gt;전체&lt;/option&gt;
+		&lt;option&gt;제목&lt;/option&gt;
+		&lt;option&gt;작성자&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/div&gt;
+</code></pre>
+@@include('select_custom.html', {
+"context" : {
+"id" : "lorem",
+"use" : true,
+"value" : ["전체", "제목", "작성자"]
+}
+})
+<pre><code class="language-markup">&lt;div&nbsp;data-select-box&nbsp;class=&quot;custom&quot;&gt;
+	&lt;input&nbsp;type=&quot;hidden&quot;&gt;
+	&lt;button&nbsp;type=&quot;button&quot;id=&quot;&quot;&gt;&lt;span&gt;전체&lt;/span&gt;&lt;/button&gt;
+	&lt;ul&nbsp;role=&quot;listbox&quot;&nbsp;area-labelledby=&quot;&quot;&gt;
+		&lt;li&nbsp;role=&quot;option&quot;&gt;전체&lt;/li&gt;
+		&lt;li&nbsp;role=&quot;option&quot;&gt;제목&lt;/li&gt;
+		&lt;li&nbsp;role=&quot;option&quot;&gt;작성자&lt;/li&gt;
 	&lt;/ul&gt;
 &lt;/div&gt;
 </code></pre>

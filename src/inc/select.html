@@ -1,13 +1,11 @@
 <div data-select-box>
 	<input type="hidden">
 	@@if(context.use) {
-	@@for(var i = 0; i < 1; i++){ 
-		<button type="button"><span>`+context.value[0]+`</span></button>
-	}
-		<ul>
-			@@for(var i = 0; i < context.value.length; i++){ 
-			<li><a href="#none">`+context.value[i]+`</a></li>
-			}
-		</ul>
+		<label></label>
+		<select>
+		@@for(var i = 0; i < context.value.length; i++){ 
+		<option>`+context.value[i]+`</option>
+		}
+		</select>
 		}
 </div>
