@@ -59,11 +59,6 @@ function htmlBuild(done) {
 		}))
 		.pipe(removeline())
 		.pipe(gulp.dest(config.devPath.html))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
 	done();
 };
 
@@ -76,11 +71,6 @@ function cssBuild(done) {
 			cascade: false
 		}).on('error', handleError))
 		.pipe(gulp.dest(config.devPath.css))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
 	done();
 };
 
@@ -90,11 +80,6 @@ function jsBuild(done) {
 		.src(config.srcPath.js, { since: gulp.lastRun(jsBuild) })
 		.pipe(beautify())
 		.pipe(gulp.dest(config.devPath.js))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
 	done();
 };
 
@@ -103,11 +88,6 @@ function fontBuild(done) {
 	return gulp
 		.src(config.srcPath.font, { since: gulp.lastRun(fontBuild) })
 		.pipe(gulp.dest(config.devPath.font))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
 	done();
 };
 
@@ -124,22 +104,6 @@ function imageBuild(done) {
 			use: []
 		}))
 		.pipe(gulp.dest(config.devPath.img))
-		.pipe(
-			sync.reload({
-				stream: true
-			})
-		);
-	done();
-};
-
-// Watch
-function watchFile(done) {
-	gulp.watch(config.srcPath.html, gulp.series(htmlBuild, gulp.parallel(reload)));
-	gulp.watch(config.srcPath.include, gulp.series(htmlBuild, gulp.parallel(reload)));
-	gulp.watch(config.srcPath.css, gulp.series(cssBuild, gulp.parallel(reload)));
-	gulp.watch(config.srcPath.js, gulp.series(jsBuild, gulp.parallel(reload)));
-	gulp.watch(config.srcPath.font, gulp.series(fontBuild, gulp.parallel(reload)));
-	gulp.watch(config.srcPath.img, gulp.series(imageBuild, gulp.parallel(reload)));
 	done();
 };
 
@@ -160,6 +124,17 @@ function browserSync(done) {
 // Reload
 function reload(done) {
 	sync.reload();
+	done();
+};
+
+// Watch
+function watchFile(done) {
+	gulp.watch(config.srcPath.html, gulp.series(htmlBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.include, gulp.series(htmlBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.css, gulp.series(cssBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.js, gulp.series(jsBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.font, gulp.series(fontBuild, gulp.parallel(reload)));
+	gulp.watch(config.srcPath.img, gulp.series(imageBuild, gulp.parallel(reload)));
 	done();
 };
 
