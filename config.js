@@ -2,7 +2,7 @@
 const src = 'src',
 	dev = 'dev',
 	srcPath = {
-		html: `${src}/**/*.html`,
+		html: [`${src}/**/*.html`, `!${src}/inc/*.html`],
 		css: `${src}/css/*.css`,
 		font: `${src}/fonts/*`,
 		js: `${src}/js/*.js`,
@@ -16,11 +16,13 @@ const src = 'src',
 		js: `${dev}/js/`,
 		img: `${dev}/img/`,
 		include: `${dev}/inc/`
-	};
+	},
+	devAll = `${dev}/**/*.*`
 
 module.exports = {
 	src,
 	dev,
 	srcPath,
-	devPath
+	devPath,
+	devAll
 }

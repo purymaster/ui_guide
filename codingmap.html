@@ -12,7 +12,7 @@
 	</style>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
-		$(function () { var t, i, h, n = $("table.list"); n.each(function () { $(this).find("tr:gt(0)").hover(function () { $(this).addClass("hover") }, function () { $(this).removeClass("hover") }).each(function (t) { $("td:eq(0)", this).text(t + 1), "" != $("td:eq(1)", this).text() && $(this).addClass("part") }).find("td").each(function () { "" == $(this).text() && $(this).addClass("nodata") }), $(this).find("tr").each(function () { i = $(this).find("td:eq(4)").text(), console.log(i); h = "<a href='dev/html/" + i + ".html' target='_blank' title='새창열림'>보기</a>", $(this).find("td:last-child").html(h) }) }) });
+		$(function () { var t, i, h, n = $("table.list"); n.each(function () { $(this).find("tr:gt(0)").hover(function () { $(this).addClass("hover") }, function () { $(this).removeClass("hover") }).each(function (t) { $("td:eq(0)", this).text(t + 1), "" != $("td:eq(1)", this).text() && $(this).addClass("part") }).find("td").each(function () { "" == $(this).text() && $(this).addClass("nodata") }), $(this).find("tr").each(function () { i = $(this).find("td:eq(4)").text(), h = "<a href='dev/html/" + i + ".html' target='_blank' title='새창열림'>보기</a>", $(this).find("td:last-child").html(h) }) }) });
 	</script>
 </head>
 
