@@ -131,6 +131,7 @@
 			topBtnFlag = 0; // TOP 버튼 상태
 
 		moveEl.addClass('wait-animation');
+
 		$(window).on('load scroll', function () {
 			scroll = $(this).scrollTop();
 
@@ -172,35 +173,110 @@
 
 	};
 
-	$(function () {
+	/******************** 모달 제어 ********************/
 
+	function setModal() {
+
+		var focusCache,
+			targetModal,
+			isModal,
+			modalPosX,
+			modalPosY,
+			scroll;
+
+		// 팝업 열기
+		$(document).on('click', '[data-open-modal]', function (e) {
+			e.preventDefault();
+			scroll = $(window).scrollTop();
+			isModal = true;
+			focusCache = $(this);
+			targetModal = $($(this).attr('href'));
+			$('[data-modal]').removeClass('on');
+			targetModal.addClass('on').find('.modal');
+			modalPosX = -Math.floor($(targetModal).find('.modal').outerWidth() / 2);
+			modalPosY = -Math.floor($(targetModal).find('.modal').outerHeight() / 2);
+
+			switch (targetModal.data('type')) {
+				case 'fix':
+					targetModal.find('.modal').css('transform', `translate(${modalPosX}px,${modalPosY}px)`);
+					$('body').addClass('fixed').on('touchmove', function (e) {
+						e.preventDefault();
+					});
+					break;
+				case 'scroll':
+					targetModal.css('height', $(document).outerHeight());
+					targetModal.find('.modal').css({
+						'top': scroll,
+						'transform': `translateX(${modalPosX}px)`
+					});
+					break;
+			};
+
+			targetModal.attr("tabindex", 0).focus();
+
+			// 팝업 닫기
+		}).on('click', '[data-modal] .close', function () {
+			isModal = false;
+			$('[data-modal]').css('height', '100%').removeClass('on');
+			focusCache.focus();
+			$('body').removeClass('fixed').off('touchmove', function (e) {
+				e.preventDefault();
+			});
+
+			// 탭 포커스 제어	
+		}).on('keydown', '[data-modal] .close', function (e) {
+			if (e.shiftKey && e.keyCode === 9) {
+				return;
+			} else if (e.keyCode === 9) {
+				$('[data-modal] .modal').attr("tabindex", 0).focus();
+				return false;
+			};
+
+			// 역탭 포커스 제어
+		}).on('keydown', '[data-modal]', function (e) {
+			if (e.shiftKey && e.keyCode === 9 && $(':focus').attr('data-modal') !== undefined) {
+				e.preventDefault();
+				$('[data-modal]').find('.close').focus();
+			};
+
+			// Escape키 제어
+		}).on('keydown', function (e) {
+			if (isModal && e.keyCode === 27) {
+				isModal = false;
+				$('[data-modal] .close').trigger('click');
+			};
+		});
+
+	};
+
+	/******************** 로딩 제어 ********************/
+
+	function setLoading() {
+
+		$('[data-open-loading]').on('click', function () {
+			$('[data-loading]').show();
+		});
+
+	};
+
+	/******************** 리사이징 초기화 ********************/
+
+	function resizeInit() {
+
+		$(window).on('resize', function () {
+			$('[data-modal] .close').trigger('click'); // 팝업 닫기
+		});
+
+	};
+
+	$(function () {
 		setTabMenu();
 		setSelectBox();
 		setScrollAnimate();
-
-		/******************** 모달 제어 ********************/
-
-		$('[data-modal] .close').on('click', function () {
-			close_modal();
-		})
-
+		setModal();
+		setLoading();
+		resizeInit();
 	});
 
-	/******************** 모달, 로딩 제어 ********************/
-
-	function show_modal(target) {
-		$(target).show();
-	}
-
-	function close_modal() {
-		$('[data-modal]').hide();
-	}
-
-	function show_loading() {
-		$('[data-loading]').show();
-	}
-
-	function hide_loading() {
-		$('[data-loading]').hide();
-	}
 })(jQuery);
+
