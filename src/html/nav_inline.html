@@ -62,6 +62,58 @@
 		</header>
 	</div>
 </div>
+
+<script>
+	$(function () {
+
+		var is_mobile = false, //모바일 판별 변수
+			scrollbar_width = window.outerWidth - $(window).width(); // 스크롤바 너비
+
+		/******************** 모바일 판별 및 네비게이션 ********************/
+
+		$(window).on('load resize', function () {
+			$('header .nav_wrap').removeClass('on');
+			$('nav .main-menu li').removeClass('on').find('.sub-menu').hide();
+			($(window).width() + scrollbar_width) > 1024 ?
+				(is_mobile = false, $('nav .sub-menu').show()) :
+				is_mobile = true;
+		});
+
+		/******************** 네비게이션 제어 ********************/
+
+		$('.main-menu').hover(function () {
+			$('.header_wrap').addClass('on');
+		}, function () {
+			$('.header_wrap').removeClass('on');
+		})
+
+		/* 모바일 메뉴 열기 */
+		$('header .open_menu').on('click', function () {
+			$('header .nav_wrap').addClass('on');
+		});
+
+		/* 모바일 메뉴 펼치기 */
+		$('nav .main-menu > li > a').on('click', (function () {
+			if (is_mobile) {
+				$(this).parent().hasClass('on') ?
+					$('nav .main-menu li').removeClass('on').find('.sub-menu').stop().slideUp(100) :
+					(
+						$('nav .main-menu li').removeClass('on').find('.sub-menu').stop().slideUp(100),
+						$(this).parent().addClass('on').find('.sub-menu').stop().slideDown(100)
+					)
+				return false;
+			}
+		}));
+
+		/* 모바일 메뉴 닫기 */
+		$('header .close_menu').on('click', function () {
+			$('header .nav_wrap').removeClass('on');
+			$('nav .main-menu > li').removeClass('on').find('.sub-menu').slideUp(100);
+		});
+
+	});
+</script>
+
 <pre><code class="language-markup">&lt;div&nbsp;data-header-inline&gt;
 	&lt;div&nbsp;class=&quot;header_wrap&quot;&gt;
 		&lt;header&gt;
