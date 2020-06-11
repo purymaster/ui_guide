@@ -47,13 +47,13 @@
 =========================================================*/
 
 html {letter-spacing:-0.025em;}
-html,body {height:100%;}
-body.fixed {overflow:hidden;}
+/* html,body {height:100%;} */
+body.fixed {overflow:hidden; position:fixed; width:100%; -ms-touch-action:none; touch-action:none;}
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,button {-webkit-box-sizing:border-box;box-sizing:border-box; margin:0; padding:0; border:0; font-family:"Noto Sans KR",Dotum,"돋움",Helvetica,"Apple SD Gothic Neo",sans-serif; font-size:100%; vertical-align:baseline;}
 
 input[type="text"],input[type="email"],input[type="number"],input[type="submit"],input[type="reset"],input[type="tel"],input[type="password"],input[type="url"],input[type="search"],input[type="file"],select,button,textarea {margin:0; padding:0; box-sizing:border-box; border:none; border-radius:0; background:none; font-family:'Noto Sans KR',Dotum,'돋움',Helvetica,'Apple SD Gothic Neo',sans-serif; font-size:100%; letter-spacing:0; -webkit-box-sizing:border-box; cursor:pointer; -webkit-appearance:none; -moz-appearance:none; appearance:none;}
 select::-ms-expand {display:none;}
-body {position:relative; background:#fff; font-size:14px; line-height:1.8; color:#333; word-wrap:break-word; word-break:keep-all; -webkit-text-size-adjust:none; -moz-text-size-adjust:none;}
+body {background:#fff; font-size:14px; line-height:1.8; color:#333; word-wrap:break-word; word-break:keep-all; -webkit-text-size-adjust:none; -moz-text-size-adjust:none;}
 blockquote,q {quotes:none;}
 table {width:100%; background:#fff; table-layout:fixed; border-spacing:0; border-collapse:collapse;}
 ul,ol,li {list-style:none;}

@@ -184,10 +184,10 @@
 			modalPosY,
 			scroll;
 
-		// 팝업 열기
+			// 팝업 열기
 		$(document).on('click', '[data-open-modal]', function (e) {
 			e.preventDefault();
-			scroll = $(window).scrollTop();
+			scroll = $(window).scrollTop() || 0;
 			isModal = true;
 			focusCache = $(this);
 			targetModal = $($(this).attr('href'));
@@ -199,7 +199,7 @@
 			switch (targetModal.data('type')) {
 				case 'fix':
 					targetModal.find('.modal').css('transform', `translate(${modalPosX}px,${modalPosY}px)`);
-					$('body').addClass('fixed').on('touchmove', function (e) {
+					$('body').addClass('fixed').css('margin-top', `-${scroll}px`).on('touchmove', function (e) {
 						e.preventDefault();
 					});
 					break;
@@ -219,9 +219,10 @@
 			isModal = false;
 			$('[data-modal]').css('height', '100%').removeClass('on');
 			focusCache.focus();
-			$('body').removeClass('fixed').off('touchmove', function (e) {
+			$('body').css('margin-top', 0).removeClass('fixed').off('touchmove', function (e) {
 				e.preventDefault();
 			});
+			$(window).scrollTop(scroll);
 
 			// 탭 포커스 제어	
 		}).on('keydown', '[data-modal] .close', function (e) {
