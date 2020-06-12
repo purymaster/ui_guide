@@ -184,7 +184,7 @@
 			modalPosY,
 			scroll;
 
-			// 팝업 열기
+		// 팝업 열기
 		$(document).on('click', '[data-open-modal]', function (e) {
 			e.preventDefault();
 			scroll = $(window).scrollTop() || 0;
