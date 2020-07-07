@@ -117,6 +117,98 @@
 
     };
 
+    /******************** 파일 업로드 제어 ********************/
+
+    function setFileUpload() {
+
+        var fileUploader = $('[data-input-form] .file'),
+            limitSize = 5 * 1048576, //5MB
+            defaultPhoto = "https://place-hold.it/160x200/ccc";
+
+        // 파일 사이즈 체크
+        function checkSize(obj) {
+            if (obj[0].files[0].size > limitSize) {
+                checkError("size", obj);
+                return;
+            };
+            checkExt(obj);
+        };
+
+        // 파일 확장자 체크
+        function checkExt(obj) {
+            var extImg = ["gif", "jpg", "jpeg", "png"],
+                extFile = ["gif", "jpg", "jpeg", "png", "doc", "docx", "ppt", "pptx", "xls", "xlsx", "pdf", "txt", "zip"],
+                ext = obj.val().split(".").pop().toLowerCase();
+
+            if (obj.parents('.file').hasClass('photo')) {
+                if ($.inArray(ext, extImg) === -1) {
+                    checkError("img", obj);
+                    return;
+                };
+                showPhoto(obj);
+            } else {
+                if ($.inArray(ext, extFile) === -1) {
+                    checkError("file", obj);
+                    return;
+                };
+            };
+            showFileDir(obj);
+        };
+
+        // 사진 미리보기 표시
+        function showPhoto(obj) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                obj.siblings('.img_wrap').find('img').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(obj[0].files[0]);
+        };
+
+        // 파일 경로 표시
+        function showFileDir(obj) {
+            var fileName;
+
+            if (window.FileReader) {
+                fileName = obj[0].files[0].name;
+            } else {
+                fileName = obj.val().split('/').pop().split('\\').pop();
+            };
+            obj.siblings('.dummy').val(fileName);
+        };
+
+        // 에러 체크, 초기화
+        function checkError(error, obj) {
+            switch (error) {
+                case "size":
+                    alert("첨부파일은 " + Math.floor(limitSize / 1048576) + "MB까지 업로드 가능합니다.");
+                    break;
+                case "file":
+                    alert('허용된 확장자 : gif, jpg, jpeg, png, doc, docx, ppt, pptx, xls, xlsx, pdf, txt, zip');
+                    break;
+                case "img":
+                    alert('허용된 확장자 : gif, jpg, jpeg, png');
+                    break;
+            };
+            obj.val("");
+            obj.siblings('.dummy').val("");
+            return false;
+        };
+
+        // 파일 업로드
+        fileUploader.on('change', 'input[type="file"]', function() {
+            if ($(this).val() === "") return false;
+            checkSize($(this));
+
+            // 파일 삭제 버튼
+        }).on('click', '.del', function() {
+            checkError(null, $(this).siblings($('input[type="file"]')));
+
+            // 사진 삭제 버튼
+        }).on('click', '.photo_del', function() {
+            $(this).siblings('img').attr('src', defaultPhoto);
+        });
+    };
+
     /******************** 스크롤 애니메이션 제어 ********************/
 
     function setScrollAnimate() {
@@ -198,8 +290,8 @@
 
             switch (targetModal.data('type')) {
                 case 'fix':
-                    targetModal.find('.modal').css('transform', `translate(${modalPosX}px,${modalPosY}px)`);
-                    $('body').addClass('fixed').css('margin-top', `-${scroll}px`).on('touchmove', function(e) {
+                    targetModal.find('.modal').css('transform', 'translate(' + modalPosX + 'px,' + modalPosY + 'px)');
+                    $('body').addClass('fixed').css('margin-top', '-' + scroll + 'px').on('touchmove', function(e) {
                         e.preventDefault();
                     });
                     break;
@@ -207,7 +299,7 @@
                     targetModal.css('height', $(document).outerHeight());
                     targetModal.find('.modal').css({
                         'top': scroll,
-                        'transform': `translateX(${modalPosX}px)`
+                        'transform': 'translateX(' + modalPosX + 'px)'
                     });
                     break;
             };
@@ -273,6 +365,7 @@
     $(function() {
         setTabMenu();
         setSelectBox();
+        setFileUpload();
         setScrollAnimate();
         setModal();
         setLoading();

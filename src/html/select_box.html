@@ -1,8 +1,10 @@
 @@include('header.html')
 @@include('select.html', {
 "context" : {
+"id" : "abc",
 "use" : true,
-"value" : ["전체", "제목", "작성자"]
+"value" : ["전체", "제목", "작성자"],
+"tit" : "검색 옵션"
 }
 })
 <pre><code class="language-markup">&lt;div&nbsp;data-select-box&gt;
@@ -19,7 +21,8 @@
 "context" : {
 "id" : "lorem",
 "use" : true,
-"value" : ["전체", "제목", "작성자"]
+"value" : ["전체", "제목", "작성자"],
+"tit" : "검색 옵션"
 }
 })
 <pre><code class="language-markup">&lt;div&nbsp;data-select-box&nbsp;class=&quot;custom&quot;&gt;

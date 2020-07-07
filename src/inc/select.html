@@ -2,7 +2,7 @@
 	<input type="hidden">
 	@@if(context.use) {
 		<label></label>
-		<select>
+		<select id="@@context.id" title="@@context.tit">
 		@@for(var i = 0; i < context.value.length; i++){ 
 		<option>`+context.value[i]+`</option>
 		}
