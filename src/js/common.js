@@ -17,7 +17,7 @@
 			} else {
 				tabMenu.find('li').attr("aria-selected", false);
 				tabPanel.hide().attr("tabindex", "-1");
-				$(this).parent().attr("aria-selected", true);
+				obj.parent().attr("aria-selected", true);
 				$('[data-tab-panel]').find(target).show().attr("tabindex", "0");
 			};
 		};
