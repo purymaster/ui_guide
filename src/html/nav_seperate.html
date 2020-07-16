@@ -97,65 +97,83 @@
 <script>
 	$(function () {
 
-		var is_mobile = false, //모바일 판별 변수
-			scrollbar_width = window.outerWidth - $(window).width(); // 스크롤바 너비
+		var isMobile = false, //웹 페이지 미디어쿼리 판별 변수
+			isNativeMobile = false, //모바일 판별 변수
+			scroll; // 스크롤 값
 
-		/******************** 모바일 판별 및 네비게이션, 검색창 초기화 ********************/
+		var mobileValidator = ['iPhone', 'iPod', 'iPad', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson'];
+		for (var word in mobileValidator) {
+			if (navigator.userAgent.match(mobileValidator[word]) !== null) isNativeMobile = true;
+		}
 
+		/* 모바일 메뉴 열기 */
+		function openMenu() {
+			scroll = $(window).scrollTop();
+			$('header .menu_wrap').addClass('on');
+			$('html,body').addClass('fixed');
+			$('body').css('margin-top', -scroll);
+		};
+
+		/* 모바일 메뉴 닫기 */
+		function closeMenu(flag) {
+			$('header .menu_wrap').removeClass('on');
+			$('nav .main-menu > li').removeClass('on').find('.sub-menu').hide();
+			$('html,body').removeClass('fixed');
+			if (flag) $('header nav .sub-menu').show();
+			$('body').css('margin-top', 0);
+			$(window).scrollTop(scroll);
+		};
+
+		/* 모바일 판별 및 네비게이션 초기화 */
 		$(window).on('load resize', function () {
 			$('h1').removeClass('hidden');
 			$('header .search button').removeClass('on').siblings('input').val('');
-			($(window).width() + scrollbar_width) > 1024 ?
-				(
-					is_mobile = false,
-					$('header .menu_wrap,nav .main-menu li').removeClass('on'),
-					$('header nav .sub-menu').show()
-				) : (
-					is_mobile = true,
-					$('header .menu_wrap').removeClass('on'),
-					$('nav .main-menu li').removeClass('on').find('.sub-menu').hide()
-				)
-		});
-
-		/******************** 헤더 검색창 제어 ********************/
-
-		$('header .search button').on('click', function () {
-			if (is_mobile) $('h1').addClass('hidden');
-			$(this).hasClass('on') ?
-				$(this).siblings('input[type="text"]').val() === "" ?
-					(
-						$(this).text('검색창 열기').removeClass('on'),
-						$('h1').removeClass('hidden')
-					) :
-					// [D] 검색 결과 페이지로 이동
-					location.href = "https://naver.com" :
-				$(this).addClass('on').text('검색창 닫기');
-		});
-
-		/******************** 네비게이션 제어 ********************/
-
-		/* 모바일 메뉴 열기 */
-		$('header .open_menu').on('click', function () {
-			$('header .menu_wrap').addClass('on');
-		});
-
-		/* 모바일 메뉴 펼치기 */
-		$('nav .main-menu > li > a').on('click', (function () {
-			if (is_mobile) {
-				$(this).parent().hasClass('on') ?
-					$('nav .main-menu li').removeClass('on').find('.sub-menu').stop().slideUp(100) :
-					(
-						$('nav .main-menu li').removeClass('on').find('.sub-menu').stop().slideUp(100),
-						$(this).parent().addClass('on').find('.sub-menu').stop().slideDown(100)
-					)
+			if (isNativeMobile) {
+				isMobile = true;
 				return false;
+			};
+			if (window.outerWidth > 1024) {
+				isMobile = false;
+				closeMenu('flag');
+			} else {
+				isMobile = true;
+				closeMenu();
+			}
+		});
+
+		/* 모바일 메뉴 제어 */
+		$('header').on('click', '.open_menu', function () {
+			openMenu();
+		}).on('click', '.close_menu', function () {
+			closeMenu();
+		});
+
+		/* 모바일 2뎁스 메뉴 펼치기 */
+		$('nav .main-menu > li > a').on('click', (function () {
+			if (!isMobile) return false;
+			if ($(this).parent().hasClass('on')) {
+				$('nav .main-menu li').removeClass('on').find('.sub-menu').stop().slideUp(100)
+			} else {
+				$('nav .main-menu li').removeClass('on').find('.sub-menu').stop().slideUp(100);
+				$(this).parent().addClass('on').find('.sub-menu').stop().slideDown(100)
 			}
 		}));
 
-		/* 모바일 메뉴 닫기 */
-		$('header .close_menu').on('click', function () {
-			$('header .menu_wrap').removeClass('on');
-			$('nav .main-menu > li').removeClass('on').find('.sub-menu').slideUp(100);
+		/* 헤더 검색창 제어 */
+		$('header .search button').on('click', function () {
+			if (isMobile || isNativeMobile) $('h1').addClass('hidden');
+			if (!$(this).hasClass('on')) {
+				$(this).addClass('on');
+				return false;
+			};
+			if ($(this).siblings('input[type="text"]').val() === "") {
+				$(this).text('검색창 열기').removeClass('on');
+				$('h1').removeClass('hidden');
+			} else {
+				// [D] 검색 결과 페이지로 이동
+				location.href = "https://naver.com";
+				$(this).addClass('on').text('검색창 닫기');
+			};
 		});
 
 	});
