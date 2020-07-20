@@ -1,0 +1,5 @@
+# Directories #
+/dev
+
+# OS Files #
+.DS_Store
