@@ -28,6 +28,8 @@
         tabPanel.attr("tabindex", "-1").eq(0).attr("tabindex", "0").show();
         tabMenu.on('click', 'a', function(e) {
             e.preventDefault();
+            tabMenu.find('a').attr("tabindex", "-1");
+            $(this).attr("tabindex", "0");
             showPanel($(this));
         }).on('keydown', 'a', function(e) {
             switch (e.keyCode) {
